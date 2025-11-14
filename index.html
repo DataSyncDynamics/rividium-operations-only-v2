@@ -1,0 +1,1886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataSync Dynamics × Rividium | Strategic Partnership Proposal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            overflow: hidden;
+        }
+
+        .slideshow-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            padding: 60px 80px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: fadeIn 0.5s;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .slide-header {
+            margin-bottom: 40px;
+        }
+
+        .slide h1 {
+            font-size: 3.5em;
+            color: #00d4ff;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .slide h2 {
+            font-size: 2.5em;
+            color: #00d4ff;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #00d4ff;
+            padding-bottom: 15px;
+        }
+
+        .slide h3 {
+            font-size: 1.8em;
+            color: #4dd4ff;
+            margin: 25px 0 15px 0;
+        }
+
+        .slide h4 {
+            font-size: 1.4em;
+            color: #80dfff;
+            margin: 20px 0 10px 0;
+        }
+
+        .slide p, .slide li {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #e0e0e0;
+            margin-bottom: 15px;
+        }
+
+        .slide ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .slide ul li {
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 12px;
+        }
+
+        .slide ul li:before {
+            content: "▸";
+            color: #00d4ff;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .highlight {
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        .emphasis {
+            color: #ffd000;
+            font-weight: bold;
+        }
+
+        .table-container {
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        th {
+            background: rgba(0, 212, 255, 0.2);
+            color: #00d4ff;
+            font-weight: bold;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 20px 0;
+        }
+
+        .box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid #00d4ff;
+            border-radius: 10px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 40px 0;
+        }
+
+        .logo-placeholder {
+            width: 250px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px dashed #00d4ff;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00d4ff;
+            font-size: 1.2em;
+        }
+
+        .slide-number {
+            display: none; /* Hide individual slide numbers */
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 1500;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #00d4ff 0%, #00ff88 100%);
+            width: 0%;
+            transition: width 0.5s ease;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+
+        .slide-counter {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            font-size: 1.3em;
+            color: #00d4ff;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: 2px solid #00d4ff;
+            z-index: 1500;
+            font-weight: bold;
+        }
+
+        /* Interactive Pillars */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 40px 0;
+            height: 60vh;
+        }
+
+        .pillar-tile {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 212, 255, 0.05) 100%);
+            border: 2px solid #00d4ff;
+            border-radius: 15px;
+            padding: 30px 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pillar-tile:hover {
+            transform: translateY(-10px);
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2) 0%, rgba(0, 212, 255, 0.1) 100%);
+            border-color: #00ff88;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .pillar-number {
+            font-size: 4em;
+            font-weight: bold;
+            color: #00d4ff;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+
+        .pillar-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .pillar-summary {
+            font-size: 0.95em;
+            color: #b0b0b0;
+            line-height: 1.5;
+        }
+
+        .pillar-impact {
+            margin-top: auto;
+            padding-top: 20px;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #00ff88;
+        }
+
+        .click-hint {
+            position: absolute;
+            bottom: 15px;
+            font-size: 0.85em;
+            color: #00d4ff;
+            opacity: 0.7;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            animation: fadeIn 0.3s;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            border: 3px solid #00d4ff;
+            border-radius: 20px;
+            padding: 50px;
+            width: 80%;
+            max-width: 1200px;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.4s;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-content::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        .modal-content::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        .modal-content::-webkit-scrollbar-thumb {
+            background: #00d4ff;
+            border-radius: 10px;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #00d4ff;
+            padding-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 2.5em;
+            color: #00d4ff;
+        }
+
+        .close-modal {
+            background: rgba(255, 0, 0, 0.2);
+            border: 2px solid #ff0000;
+            color: #ff0000;
+            font-size: 2em;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-modal:hover {
+            background: rgba(255, 0, 0, 0.4);
+            transform: rotate(90deg);
+        }
+
+        .modal-section {
+            margin-bottom: 35px;
+        }
+
+        .modal-section h3 {
+            font-size: 1.8em;
+            color: #4dd4ff;
+            margin-bottom: 15px;
+        }
+
+        .modal-section h4 {
+            font-size: 1.4em;
+            color: #80dfff;
+            margin: 20px 0 10px 0;
+        }
+
+        .modal-section p, .modal-section li {
+            font-size: 1.15em;
+            line-height: 1.8;
+            color: #e0e0e0;
+        }
+
+        .modal-highlight-box {
+            background: rgba(0, 255, 136, 0.1);
+            border: 2px solid #00ff88;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+            text-align: center;
+        }
+
+        .modal-highlight-box h3 {
+            color: #00ff88;
+            font-size: 2em;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-button {
+            background: rgba(0, 212, 255, 0.3);
+            border: 2px solid #00d4ff;
+            color: #00d4ff;
+            padding: 12px 25px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .nav-button:hover {
+            background: rgba(0, 212, 255, 0.6);
+            transform: scale(1.05);
+        }
+
+        .content-scroll {
+            max-height: 75vh;
+            overflow-y: auto;
+            padding-right: 20px;
+        }
+
+        .content-scroll::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .content-scroll::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .content-scroll::-webkit-scrollbar-thumb {
+            background: #00d4ff;
+            border-radius: 5px;
+        }
+
+        .title-slide {
+            text-align: center;
+            justify-content: center !important;
+        }
+
+        .title-slide h1 {
+            font-size: 4.5em;
+            margin-bottom: 30px;
+        }
+
+        .title-slide .subtitle {
+            font-size: 2em;
+            color: #80dfff;
+            margin-bottom: 50px;
+        }
+
+        .title-slide .prepared-for {
+            font-size: 1.3em;
+            color: #e0e0e0;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Slide Counter -->
+    <div class="slide-counter" id="slideCounter">1 / 16</div>
+
+    <div class="slideshow-container">
+        <!-- Slide 1: Title -->
+        <div class="slide active title-slide">
+            <h1>STRATEGIC PARTNERSHIP PROPOSAL - V2</h1>
+            <div class="subtitle">DataSync Dynamics × Rividium</div>
+            <div class="logo-container">
+                <div class="logo-placeholder">DataSync Logo</div>
+                <div style="font-size: 3em; color: #00d4ff;">×</div>
+                <div class="logo-placeholder">Rividium Logo</div>
+            </div>
+            <div class="prepared-for">
+                <strong>Prepared for:</strong> Rividium Leadership Team<br>
+                <strong>Prepared by:</strong> Andre Chinnery & Dante Chinnery - DataSync Dynamics<br>
+                <strong>Date:</strong> Upon Agreement
+            </div>
+            <div class="slide-number">1</div>
+        </div>
+
+        
+<!-- Slide 2: Executive Summary -->
+        <div class="slide">
+            <h2>EXECUTIVE SUMMARY</h2>
+            <div class="content-scroll">
+                <p><strong class="emphasis">This is a strategic investment in Rividium's growth and modernization.</strong></p>
+
+                <div class="two-column">
+                    <div class="box">
+                        <h3>What Rividium Gains:</h3>
+                        <ul>
+                            <li><strong>Acquisition of GovDoc.ai platform</strong> - proven federal document intelligence system with production-ready technical capabilities</li>
+                            <li><strong>Production-grade federal infrastructure</strong> - Day 1 access to AWS platform worth $500K-1M+</li>
+                            <li><strong>Immediate operational efficiency</strong> through AI-powered automation & process optimization</li>
+                            <li><strong>Marketing transformation</strong> that reduces costs while elevating your brand</li>
+                            <li><strong>Internal modernization expertise</strong> transforming your operations with proven solutions</li>
+                            <li><strong>Commercialization to existing contracts</strong> - sell modernization solutions to your current 30+ federal clients</li>
+                            <li><strong>Strategic BD support</strong> for federal partnerships and contract expansion</li>
+                        </ul>
+                    </div>
+
+                    <div class="box">
+                        <h3>DataSync's Supporting Role:</h3>
+                        <ul>
+                            <li><strong>Platform access</strong> - providing enterprise-grade AWS infrastructure you'd need 12-18 months to build</li>
+                            <li><strong>Technical execution</strong> - hands-on implementation, not just consulting</li>
+                            <li><strong>Brand partnership</strong> - promoting Rividium's federal reputation and thought leadership</li>
+                            <li><strong>Revenue alignment</strong> - success tied to your measurable outcomes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Investment Structure:</h3>
+                <ul>
+                    <li><span class="highlight">$20,000/month retainer</span> for dedicated strategic support (200 hours/month)</li>
+                    <li><span class="highlight">Joint venture revenue sharing</span> on commercialized solutions</li>
+                    <li><span class="highlight">Immediate activation</span> upon agreement</li>
+                </ul>
+            </div>
+            <div class="slide-number">2</div>
+        </div>
+
+
+<!-- Slide 3: Meet Your Team -->
+        <div class="slide">
+            <h2>MEET YOUR TEAM</h2>
+            <div class="content-scroll">
+                <p style="text-align: center; font-size: 1.3em; margin-bottom: 30px; color: #00ff88;">
+                    <strong>This isn't outsourced consulting. This is proven operational leadership dedicated to Rividium.</strong>
+                </p>
+
+                <div class="two-column" style="margin-bottom: 40px;">
+                    <div class="box">
+                        <h3 style="color: #00d4ff; margin-bottom: 20px;">Dante Chinnery</h3>
+                        <p style="font-size: 1.1em; color: #ffd000; margin-bottom: 15px;"><strong>VP of Solutions & Strategy, DataSync Dynamics</strong></p>
+                        <p style="font-size: 1.1em; color: #ffd000; margin-bottom: 20px;"><strong>Co-Founder, GovDoc.ai</strong></p>
+
+                        <h4 style="color: #4dd4ff; font-size: 1.2em;">Background:</h4>
+                        <ul style="font-size: 1.05em; line-height: 1.8;">
+                            <li>9 years in IT operations and infrastructure</li>
+                            <li>MSP → Systems Admin → IT Management → vCIO</li>
+                            <li>Certified across multiple IT disciplines</li>
+                            <li>Expertise: Digital infrastructure, automation, strategic IT/business alignment</li>
+                        </ul>
+
+                        <h4 style="color: #4dd4ff; font-size: 1.2em; margin-top: 20px;">What Dante Brings to Rividium:</h4>
+                        <ul style="font-size: 1.05em; line-height: 1.8;">
+                            <li>Federal partnership development and BD strategy</li>
+                            <li>Conference networking and relationship building</li>
+                            <li>Internal process optimization and modernization</li>
+                            <li>Strategic operations leadership across your 30+ contracts</li>
+                        </ul>
+                    </div>
+
+                    <div class="box">
+                        <h3 style="color: #00d4ff; margin-bottom: 20px;">Andre Chinnery</h3>
+                        <p style="font-size: 1.1em; color: #ffd000; margin-bottom: 15px;"><strong>Director of AI Solutions Engineering, DataSync Dynamics</strong></p>
+                        <p style="font-size: 1.1em; color: #ffd000; margin-bottom: 20px;"><strong>Technical Lead, GovDoc.ai</strong></p>
+
+                        <h4 style="color: #4dd4ff; font-size: 1.2em;">Background:</h4>
+                        <ul style="font-size: 1.05em; line-height: 1.8;">
+                            <li>4+ years in Diplomatic Security</li>
+                            <li>2+ years at Booz Allen Hamilton (Cyber Threat Intelligence, Risk Intelligence)</li>
+                            <li>Security-focused AI automation specialist</li>
+                            <li>Expertise: Federal compliance, AI-powered solutions, marketing automation</li>
+                        </ul>
+
+                        <h4 style="color: #4dd4ff; font-size: 1.2em; margin-top: 20px;">What Andre Brings to Rividium:</h4>
+                        <ul style="font-size: 1.05em; line-height: 1.8;">
+                            <li>AI-powered solution architecture and development</li>
+                            <li>Direct ownership of your social media and digital presence</li>
+                            <li>CMMC compliance tracker and automation tools</li>
+                            <li>Marketing automation and content generation for your brand</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="box" style="background: rgba(255, 208, 0, 0.1); padding: 30px;">
+                    <h3 style="color: #ffd000; margin-bottom: 20px;">Irena - Graphic Designer & Creative Lead</h3>
+                    <div class="two-column">
+                        <div>
+                            <h4 style="color: #4dd4ff;">Background:</h4>
+                            <ul style="font-size: 1.05em; line-height: 1.8;">
+                                <li>Former designer at Goat (major creative agency)</li>
+                                <li>Led visual branding for GovDoc.ai</li>
+                                <li>Proven track record in professional brand development</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: #4dd4ff;">What Irena Brings to Rividium:</h4>
+                            <ul style="font-size: 1.05em; line-height: 1.8;">
+                                <li>Visual brand excellence and design strategy</li>
+                                <li>Social media graphics and content assets</li>
+                                <li>Professional presentation and marketing materials</li>
+                                <li>Dedicated creative support for your brand elevation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box" style="background: rgba(0, 255, 136, 0.1); padding: 30px; margin-top: 30px; text-align: center;">
+                    <h3 style="color: #00ff88; font-size: 1.6em; margin-bottom: 15px;">Why This Team Works</h3>
+                    <p style="font-size: 1.2em; line-height: 1.8;">
+                        <strong>Dante:</strong> Operations, strategy, and federal BD<br/>
+                        <strong>Andre:</strong> Technical execution, AI solutions, and marketing<br/>
+                        <strong>Irena:</strong> Visual excellence and brand credibility<br/><br/>
+                        <span style="color: #ffd000; font-size: 1.1em;">Combined: A complete transformation engine dedicated to Rividium's growth</span>
+                    </p>
+                </div>
+            </div>
+            <div class="slide-number">3</div>
+        </div>
+
+
+<!-- Slide 11: What Makes DataSync Different -->
+        <div class="slide">
+            <h2>WHAT MAKES DATASYNC DIFFERENT</h2>
+            <div class="content-scroll">
+                <h3>1. We've Proven This Model Works</h3>
+                <ul>
+                    <li><strong>GovDoc.ai:</strong> Co-founded and built federal document intelligence platform with production infrastructure - now being acquired by Rividium as part of this partnership</li>
+                    <li><strong>Narrative Shift coaching framework:</strong> Streamlined digital presence, unified CRM/scheduling, and automated client workflows - proven execution</li>
+                    <li><strong>DataSync client portfolio:</strong> Dream Car Rentals, AIP Media, GTK PC, and others - demonstrated capability across industries</li>
+                </ul>
+                <p class="emphasis">Your advantage: We've built, deployed, and scaled solutions successfully. Now we do it for Rividium.</p>
+
+                <h3>2. We're Operators Working for You, Not Consultants</h3>
+                <ul>
+                    <li>We don't deliver PowerPoint decks and leave you to implement</li>
+                    <li>We build, deploy, measure, iterate, and productize for you</li>
+                    <li>We're accountable to your measurable outcomes, not just billable hours</li>
+                </ul>
+
+                <h3>3. Proven Track Record Across Multiple Industries</h3>
+                <div class="box" style="background: rgba(0, 212, 255, 0.1); padding: 30px; margin-bottom: 20px;">
+                    <h4 style="color: #00ff88; margin-bottom: 20px;">Clients We've Transformed:</h4>
+                    <div class="two-column">
+                        <ul style="font-size: 1.05em;">
+                            <li><strong>GovDoc.ai:</strong> Co-founded, built production infrastructure, positioned for federal deployment</li>
+                            <li><strong>Narrative Shift:</strong> Streamlined digital presence, unified CRM/scheduling, automated workflows</li>
+                            <li><strong>Dream Car Rentals:</strong> Process automation and operational efficiency</li>
+                            <li><strong>AIP Media:</strong> Marketing automation and content strategy</li>
+                        </ul>
+                        <ul style="font-size: 1.05em;">
+                            <li><strong>GTK PC (Maryland Cardiology):</strong> Digital infrastructure modernization</li>
+                            <li><strong>Multiple therapy practices:</strong> Intake automation, scheduling optimization</li>
+                            <li><strong>Cyber firms & STR companies:</strong> Lead generation, brand positioning</li>
+                            <li><strong>Small business owners:</strong> Website modernization, portal development</li>
+                        </ul>
+                    </div>
+                    <p style="margin-top: 25px; font-size: 1.15em; text-align: center; color: #00ff88;">
+                        <strong>Common Results:</strong> Reduced manual processes, enhanced digital presence, improved efficiency, modernized customer-facing systems, unified communications
+                    </p>
+                </div>
+
+                <div class="box" style="margin-top: 30px; background: rgba(0, 212, 255, 0.1); padding: 30px;">
+                    <h3 style="margin-bottom: 20px;">4. The Market Is Proven - This Model Works at Scale</h3>
+                    <p style="font-size: 1.15em; line-height: 1.8; margin-bottom: 20px;">
+                        Federal modernization + AI transformation + commercialization is not theoretical. There are competitors in this space generating <strong style="color: #00ff88;">$140M+ annually</strong> using this exact playbook:
+                    </p>
+                    <ul style="font-size: 1.1em; line-height: 1.9;">
+                        <li><strong>Founded 2016</strong> (9 years ago) → grew to <strong>$140M/year revenue</strong></li>
+                        <li><strong>Built proprietary AI platform</strong> for federal modernization (similar to our GovDoc infrastructure)</li>
+                        <li><strong>Recent acquisitions doubled company size</strong> by expanding into commercial healthcare IT</li>
+                        <li><strong>~400 employees</strong> serving federal agencies with cloud modernization</li>
+                    </ul>
+                    <p class="emphasis" style="font-size: 1.3em; margin-top: 25px; text-align: center; color: #00ff88;">
+                        <strong>This validates everything we're proposing:</strong><br/>
+                        Federal infrastructure + AI platform + commercialization = $140M opportunity
+                    </p>
+                    <p style="font-size: 1.15em; margin-top: 20px; text-align: center;">
+                        <strong>Rividium's Advantage:</strong> You already have 30+ federal contracts to build on. They started from zero.<br/>
+                        <strong>Our Advantage:</strong> We deliver 2x faster (4-8 months vs. 9-18 months) with production infrastructure ready Day 1.
+                    </p>
+                </div>
+
+                <div class="box" style="margin-top: 30px; background: rgba(255, 208, 0, 0.1);">
+                    <h3>5. You've Already Seen What We Deliver</h3>
+                    <p class="emphasis" style="font-size: 1.3em; text-align: center;">
+                        Rividium's leadership team has witnessed firsthand how we engage at networking events, think strategically about opportunities, and deliver on commitments (FAA partnership discussions prove this).<br><br>
+                        This isn't a leap of faith. You know exactly what Rividium is getting.
+                    </p>
+                </div>
+            </div>
+            <div class="slide-number">3</div>
+        </div>
+
+
+<!-- Slide 6: The DataSync Platform Advantage -->
+        <div class="slide">
+            <div style="display: flex; justify-content: flex-end; gap: 30px; align-items: center; margin-bottom: 10px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" style="height: 40px; filter: brightness(0) invert(1);">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg" alt="Azure" style="height: 40px; filter: brightness(0) invert(1);">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" alt="Google Cloud" style="height: 40px; filter: brightness(0) invert(1);">
+            </div>
+            <h2>THE DATASYNC PLATFORM ADVANTAGE</h2>
+            <p style="text-align: center; font-size: 1.4em; color: #00ff88; margin-bottom: 20px;">You're Not Just Hiring a Team - You're Gaining Access to Production-Grade Federal Infrastructure</p>
+
+            <div class="content-scroll">
+                <div class="box" style="background: rgba(0, 212, 255, 0.15); padding: 30px; margin-bottom: 30px;">
+                    <h3 style="text-align: center; font-size: 1.8em; margin-bottom: 20px;">Enterprise-Grade Cloud & AI Platform (Already Built)</h3>
+                    <p style="text-align: center; font-size: 1.2em;">Rividium gains Day 1 access to a fully operational, government-ready infrastructure platform - no build time, no risk, immediate deployment capability</p>
+                </div>
+
+                <h3>What You Get Immediately</h3>
+
+                <div class="two-column" style="margin-bottom: 30px;">
+                    <div class="box">
+                        <h4>AWS-Native Foundation (FedRAMP-Aligned)</h4>
+                        <ul style="font-size: 0.95em;">
+                            <li>VPC-isolated compute (EC2, Lambda, ECS)</li>
+                            <li>Private subnets + NAT gateways (zero public exposure)</li>
+                            <li>AWS Cognito identity + MFA + role-based access</li>
+                            <li>AWS KMS encryption across all data, secrets, and logs</li>
+                            <li>Multi-tenant architecture (isolated per client/project)</li>
+                            <li>CloudFront + Route 53 secure global delivery</li>
+                        </ul>
+                    </div>
+
+                    <div class="box">
+                        <h4>Infrastructure as Code (Terraform)</h4>
+                        <ul style="font-size: 0.95em;">
+                            <li>Single source of truth monorepo</li>
+                            <li>Multi-environment (dev/stage/prod)</li>
+                            <li>Multi-tenant segmentation</li>
+                            <li>Automated CI/CD pipelines</li>
+                            <li>Zero configuration drift</li>
+                            <li>Reproducible deployments in minutes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="two-column" style="margin-bottom: 30px;">
+                    <div class="box">
+                        <h4>AI Automation Engine (Production)</h4>
+                        <ul style="font-size: 0.95em;">
+                            <li>AWS Bedrock-powered AI agents (Claude Haiku/Sonnet)</li>
+                            <li>Multi-project workspace management</li>
+                            <li>Secure document intelligence orchestration</li>
+                            <li>Workflow automation + data pipelines</li>
+                            <li>Audited interaction logs + role-based permissions</li>
+                            <li>Modular agent architecture (APIs, RPA, ingestion)</li>
+                        </ul>
+                    </div>
+
+                    <div class="box">
+                        <h4>Secure SaaS Portal (GovDoc Platform)</h4>
+                        <ul style="font-size: 0.95em;">
+                            <li>Full-stack portal with API Gateway + Lambda backend</li>
+                            <li>Project-level AI terminals + resource browsers</li>
+                            <li>Access-controlled environments per user</li>
+                            <li>S3 + CloudFront secure frontend</li>
+                            <li>Multi-tenant user management</li>
+                            <li>Production-ready infrastructure, pre-revenue (blank canvas for Rividium)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="box" style="background: rgba(0, 255, 136, 0.1); padding: 30px; margin-bottom: 30px;">
+                    <h3 style="margin-bottom: 20px;">Security & Compliance (Built-In, Day 1)</h3>
+                    <div class="two-column">
+                        <div>
+                            <h4>Security Controls</h4>
+                            <ul style="font-size: 0.95em;">
+                                <li>Zero trust application model</li>
+                                <li>KMS-encrypted everything (data, secrets, logs)</li>
+                                <li>IAM role boundaries + least privilege</li>
+                                <li>VPC-only compute access</li>
+                                <li>Rotating credentials via Secrets Manager</li>
+                                <li>CloudTrail monitoring + audit trails</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Compliance Alignments</h4>
+                            <ul style="font-size: 0.95em;">
+                                <li>FedRAMP Low/Moderate baseline</li>
+                                <li>NIST 800-53 controls</li>
+                                <li>CUI handling capabilities</li>
+                                <li>DoD Zero Trust principles</li>
+                                <li>FIPS-validated cryptography (AWS KMS)</li>
+                                <li>Audit-ready architecture</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box" style="background: rgba(255, 208, 0, 0.1); padding: 30px;">
+                    <h3 style="margin-bottom: 20px;">What This Means for Rividium's 30+ Federal Contracts</h3>
+                    <p style="font-size: 1.2em; margin-bottom: 20px;">Using this platform, we can rapidly deploy across your existing client base:</p>
+                    <div class="two-column">
+                        <ul style="font-size: 1.05em;">
+                            <li><strong>Automated case management + document processing</strong></li>
+                            <li><strong>AI-driven analytics dashboards</strong></li>
+                            <li><strong>Sensitive document classification + summarization</strong></li>
+                            <li><strong>Multi-tenant SaaS apps for federal programs</strong></li>
+                        </ul>
+                        <ul style="font-size: 1.05em;">
+                            <li><strong>Secure AI terminals for analysts</strong></li>
+                            <li><strong>ETL/ELT data pipelines</strong></li>
+                            <li><strong>Custom AI agent ecosystems</strong></li>
+                            <li><strong>FedRAMP-ready hosting environments</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="box" style="background: rgba(255, 208, 0, 0.15); border: 3px solid #ffd000; padding: 40px; margin-top: 30px;">
+                    <h3 style="font-size: 1.9em; color: #ffd000; margin-bottom: 25px; text-align: center;">Rividium Acquires GovDoc.ai Platform</h3>
+                    <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 25px;">
+                        As part of this partnership, <strong>Rividium executes a full buyout of GovDoc.ai</strong> - acquiring all IP, infrastructure, and technical capabilities. GovDoc.ai was co-founded by Dante Chinnery in April 2024 and has been built as a federal-ready document intelligence platform.
+                    </p>
+                    <p style="font-size: 1.1em; line-height: 1.8; margin-bottom: 25px; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px;">
+                        <strong>What's Included:</strong> Complete platform ownership, all source code and IP rights, production AWS infrastructure, and the technical team (Andre + Irena) who built it. This is a clean asset transfer with no existing customers or revenue obligations - giving Rividium a blank canvas to deploy across your 30+ federal contracts.
+                    </p>
+
+                    <div class="two-column" style="margin-bottom: 25px;">
+                        <div>
+                            <h4 style="color: #ffd000; font-size: 1.3em;">Technical Capabilities:</h4>
+                            <ul style="font-size: 1.05em; line-height: 1.8;">
+                                <li>AI-powered document processing and intelligence</li>
+                                <li>Secure multi-tenant SaaS architecture</li>
+                                <li>Production-tested federal deployment framework</li>
+                                <li>Proven compliance and security controls</li>
+                                <li>Scalable AI agent infrastructure</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: #ffd000; font-size: 1.3em;">Strategic Value to Rividium:</h4>
+                            <ul style="font-size: 1.05em; line-height: 1.8;">
+                                <li>Immediate product offering for federal clients</li>
+                                <li>Built-in proof of concept for modernization</li>
+                                <li>Ready-to-deploy across your 30+ contracts</li>
+                                <li>Commercializable platform from day one</li>
+                                <li>Technical team expertise transfers to Rividium</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <p style="font-size: 1.25em; text-align: center; color: #00ff88; margin-top: 20px;">
+                        <strong>This isn't just infrastructure access - Rividium owns the platform, the technology, and the IP.</strong>
+                    </p>
+                </div>
+
+                <div class="box" style="background: linear-gradient(135deg, rgba(0, 212, 255, 0.2) 0%, rgba(0, 255, 136, 0.2) 100%); padding: 40px; margin-top: 30px; text-align: center;">
+                    <h3 style="font-size: 1.8em; color: #00ff88; margin-bottom: 20px;">This Is Not Theoretical</h3>
+                    <p style="font-size: 1.3em; line-height: 1.8;">
+                        <strong>GovDoc.ai runs on this infrastructure today.</strong><br/>
+                        <strong>FAA partnership discussions are underway leveraging this platform.</strong><br/>
+                        <strong>Multi-tenant architecture is proven and operational.</strong><br/><br/>
+                        Rividium gets immediate access to a platform that would take 12-18 months and $500K-1M+ to build from scratch.
+                    </p>
+                </div>
+            </div>
+            <div class="slide-number">4</div>
+        </div>
+
+        
+<!-- Slide 5: Four Pillars Overview - Interactive -->
+        <div class="slide">
+            <h2>FOUR PILLARS OF OPERATIONAL VALUE FOR RIVIDIUM</h2>
+            <p style="text-align: center; font-size: 1.3em; margin-bottom: 20px;">Click any pillar to explore detailed benefits</p>
+
+            <div class="pillars-grid">
+                <!-- Pillar 1 -->
+                <div class="pillar-tile" onclick="openModal('pillar1')">
+                    <div class="pillar-number">1</div>
+                    <div class="pillar-title">Operational Efficiency & Cost Reduction</div>
+                    <div class="pillar-summary">AI-powered automation, CMMC compliance tracking, marketing optimization</div>
+                    <div class="pillar-impact">$100-160K Annual Savings</div>
+                    <div class="click-hint">Click to explore →</div>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="pillar-tile" onclick="openModal('pillar2')">
+                    <div class="pillar-number">2</div>
+                    <div class="pillar-title">Marketing & Brand Elevation</div>
+                    <div class="pillar-summary">Proven GovDoc.ai model, social media ownership, thought leadership</div>
+                    <div class="pillar-impact">$80-120K Cost Reduction</div>
+                    <div class="click-hint">Click to explore →</div>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="pillar-tile" onclick="openModal('pillar3')">
+                    <div class="pillar-number">3</div>
+                    <div class="pillar-title">Business Development & Engagement</div>
+                    <div class="pillar-summary">Conference networking, strategic partnerships, relationship building</div>
+                    <div class="pillar-impact">$500K-1M Partnership Pipeline</div>
+                    <div class="click-hint">Click to explore →</div>
+                </div>
+
+                <!-- Pillar 4 -->
+                <div class="pillar-tile" onclick="openModal('pillar4')">
+                    <div class="pillar-number">4</div>
+                    <div class="pillar-title">Internal Modernization & Commercialization</div>
+                    <div class="pillar-summary">Transform Rividium operations, then sell those solutions to your existing 30+ federal contracts</div>
+                    <div class="pillar-impact">$500K-1.5M Year 1 from Current Client Base</div>
+                    <div class="click-hint">Click to explore →</div>
+                </div>
+            </div>
+            <div class="slide-number">5</div>
+        </div>
+
+        
+<!-- Slide 4: The DataSync Transformation Model -->
+        <div class="slide">
+            <h2>THE DATASYNC TRANSFORMATION MODEL</h2>
+            <div class="content-scroll">
+                <h3>Core Philosophy: <span class="highlight">Your Challenges Become Your Revenue Streams</span></h3>
+                <p>Traditional consulting burns money. You pay for solutions that die in a PowerPoint deck.</p>
+                <p><strong class="emphasis">This model transforms your investment into ongoing returns:</strong></p>
+
+                <div class="box" style="margin: 30px 0;">
+                    <ol style="list-style: decimal; padding-left: 30px;">
+                        <li style="margin-bottom: 15px;"><strong>We identify your operational bottleneck</strong> (compliance tracking, marketing inefficiency, POC delays)</li>
+                        <li style="margin-bottom: 15px;"><strong>We build your AI-powered solution</strong> (CMMC tracker, content automation, rapid POC framework)</li>
+                        <li style="margin-bottom: 15px;"><strong>We deploy it for Rividium first</strong> (your problem gets solved, ROI proven)</li>
+                        <li style="margin-bottom: 15px;"><strong>We productize and sell it for you</strong> to other government contractors (your cost becomes revenue)</li>
+                        <li style="margin-bottom: 15px;"><strong>You earn ongoing revenue</strong> on tools we built for your needs (you keep 30%)</li>
+                    </ol>
+                </div>
+
+                <p class="emphasis" style="font-size: 1.4em; text-align: center; margin-top: 30px;">
+                    You're not paying for consulting. You're acquiring revenue-generating IP built specifically for Rividium.
+                </p>
+            </div>
+            <div class="slide-number">6</div>
+        </div>
+
+        
+<!-- Slide 3: ROI Projection -->
+        <div class="slide">
+            <h2>YEAR 1 ROI PROJECTION</h2>
+            <div class="content-scroll">
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Category</th>
+                            <th>Year 1 Impact</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Cost Savings & Efficiency</strong></td>
+                            <td class="highlight">$120K-200K</td>
+                        </tr>
+                        <tr>
+                            <td>Marketing automation & brand optimization</td>
+                            <td>$80K-120K annually</td>
+                        </tr>
+                        <tr>
+                            <td>Internal process automation & modernization</td>
+                            <td>$20K-40K annually</td>
+                        </tr>
+                        <tr>
+                            <td>CMMC compliance efficiency</td>
+                            <td>$20K-40K annually</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Net Investment</strong></td>
+                            <td class="emphasis">$40K-120K (after applying $120K-200K savings)</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h3>Rividium's Revenue Opportunities:</h3>
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Opportunity</th>
+                            <th>Year 1 Revenue to Rividium</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Commercialization to Your Existing 30+ Federal Contracts</strong><br/><em style="font-size: 0.9em;">Sell modernization solutions to your current client base</em></td>
+                            <td class="highlight">$300K-900K (you keep 60%)</td>
+                        </tr>
+                        <tr>
+                            <td>Federal Contract Support & Partnership Development</td>
+                            <td class="highlight">$425K-1.28M (you keep 85-90%)</td>
+                        </tr>
+                        <tr>
+                            <td>Strategic Partnerships & BD Opportunities</td>
+                            <td class="highlight">$425K-850K (you keep 85%)</td>
+                        </tr>
+                        <tr>
+                            <td>Product Sales from Tools We Build for You</td>
+                            <td class="highlight">$53K-105K (you keep 30%)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total Year 1 Revenue to Rividium</strong></td>
+                            <td class="emphasis">$1.20M-$3.14M</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="box" style="margin-top: 30px; text-align: center; background: rgba(0, 255, 136, 0.1); padding: 25px;">
+                    <h3>Your Return on Investment</h3>
+                    <p style="font-size: 1.4em; margin-top: 15px;">
+                        <strong>Investment:</strong> $240K/year<br/>
+                        <strong>Revenue Generated:</strong> $1.20M-$3.14M<br/>
+                        <strong>ROI:</strong> <span class="highlight" style="font-size: 1.3em;">5x - 13x</span>
+                    </p>
+                </div>
+            </div>
+            <div class="slide-number">7</div>
+        </div>
+
+        
+<!-- Slide 7: Engagement Structure -->
+        <div class="slide">
+            <h2>ENGAGEMENT STRUCTURE</h2>
+            <div class="content-scroll">
+                <h3>Time Allocation (50 hours/week, 200 hours/month)</h3>
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Activity Category</th>
+                            <th>Hours/Week</th>
+                            <th>Focus Areas</th>
+                        </tr>
+                        <tr>
+                            <td>Direct Operations</td>
+                            <td class="highlight">24 hours</td>
+                            <td>CMMC compliance, marketing automation, process optimization, internal modernization</td>
+                        </tr>
+                        <tr>
+                            <td>Marketing & Brand Development</td>
+                            <td class="highlight">12 hours</td>
+                            <td>Social media management, content creation, brand positioning</td>
+                        </tr>
+                        <tr>
+                            <td>BD & Engagement</td>
+                            <td class="highlight">10 hours</td>
+                            <td>Conferences, networking, partnership development</td>
+                        </tr>
+                        <tr>
+                            <td>Strategy & Reporting</td>
+                            <td class="highlight">4 hours</td>
+                            <td>Weekly sync with leadership team, milestone tracking</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h3>Team Structure</h3>
+                <div class="two-column">
+                    <div class="box">
+                        <h4>Dante Chinnery</h4>
+                        <p><strong>VP of Solutions & Strategy</strong></p>
+                        <ul style="font-size: 0.95em;">
+                            <li>Business development & strategic relationship management</li>
+                            <li>Federal solutions positioning & partnership development</li>
+                            <li>Conference representation & networking</li>
+                            <li>Internal process optimization & modernization</li>
+                        </ul>
+                    </div>
+
+                    <div class="box">
+                        <h4>Andre Chinnery</h4>
+                        <p><strong>Director of AI Solutions Engineering</strong></p>
+                        <ul style="font-size: 0.95em;">
+                            <li>AI-powered solution architecture</li>
+                            <li>Direct ownership of social media</li>
+                            <li>CMMC compliance tracker development</li>
+                            <li>Marketing automation implementation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <p><strong>Additional Support for Rividium:</strong> Irena (Graphic Designer) dedicated to your brand, plus DataSync technical team available for overflow work at $200/hour</p>
+            </div>
+            <div class="slide-number">8</div>
+        </div>
+
+        
+<!-- Slide 8: Financial Terms -->
+        <div class="slide">
+            <h2>FINANCIAL TERMS</h2>
+            <div class="content-scroll">
+                <h3>Base Engagement</h3>
+                <div class="box">
+                    <ul>
+                        <li><strong>Monthly Retainer:</strong> <span class="highlight">$20,000</span></li>
+                        <li><strong>Commitment:</strong> 200 hours/month (50 hours/week)</li>
+                        <li><strong>Effective Rate:</strong> $100/hour</li>
+                        <li><strong>Payment Terms:</strong> Net 15, payable to DataSync Dynamics LLC</li>
+                        <li><strong>Contract Period:</strong> 12 months, renewable quarterly thereafter</li>
+                        <li><strong>Termination:</strong> 30-day notice by either party</li>
+                    </ul>
+                </div>
+
+                <h3>Joint Venture Structure for Contract Revenue</h3>
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Contract Type</th>
+                            <th>DataSync Share</th>
+                            <th>Rividium Share</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Commercial - DataSync-Originated</strong></td>
+                            <td class="highlight">51%</td>
+                            <td>49%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Commercial - Joint-Pursuit</strong></td>
+                            <td class="highlight">50%</td>
+                            <td>50%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Commercial - Rividium-Originated</strong></td>
+                            <td>40%</td>
+                            <td class="highlight">60%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Federal - Rividium-Originated</strong></td>
+                            <td>10%</td>
+                            <td class="highlight">90%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Federal - Joint-Pursuit</strong></td>
+                            <td>15%</td>
+                            <td class="highlight">85%</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h3>Productized Tool Revenue Share</h3>
+                <p><strong>IP Ownership:</strong> Joint ownership on tools built for Rividium during engagement</p>
+                <p><strong>Revenue Split on External Sales:</strong> <span class="highlight">Rividium earns 30%</span> on tools built to solve your problems</p>
+            </div>
+            <div class="slide-number">9</div>
+        </div>
+
+        
+<!-- Slide 9: Immediate Deliverables -->
+        <div class="slide">
+            <h2>IMMEDIATE DELIVERABLES FOR RIVIDIUM</h2>
+            <div class="content-scroll">
+                <h3>Phase 1: Foundation & Quick Wins</h3>
+                <ul>
+                    <li>Your CMMC Compliance Tracker: Scope and architecture finalized with your CTO</li>
+                    <li>Your Marketing Ownership Transfer: Andre takes control of your social accounts</li>
+                    <li>Your Modernization Audit: We map operational bottlenecks across your 30+ contracts</li>
+                    <li>Your FAA Partnership: Continued exploratory discussions and solution development</li>
+                    <li>Your Strategic Planning: Joint session with leadership team on priorities</li>
+                </ul>
+
+                <h3>Phase 2: Building Your Solutions</h3>
+                <ul>
+                    <li>Your CMMC Tracker: MVP deployed for your internal use</li>
+                    <li>Your Marketing Content: First AI-generated content published on your behalf</li>
+                    <li>Your Process Documentation: Complete assessment of your operational bottlenecks</li>
+                    <li>Your Partnership Strategy: Target relationships mapped and prioritized</li>
+                </ul>
+
+                <h3>Phase 3: Optimization & Refinement</h3>
+                <ul>
+                    <li>Your CMMC Tracker: Refined based on your feedback, prepared for external sales that benefit you</li>
+                    <li>Your Marketing Automation: Social media workflows deployed for your brand</li>
+                    <li>Your Commercial Pipeline: Outreach strategies developed and initiated</li>
+                    <li>Your POC Framework: Standardized process documented for your team</li>
+                </ul>
+
+                <h3>Phase 4: Measuring & Planning</h3>
+                <ul>
+                    <li>Your Performance Review: Measurable savings delivered, pipeline status, marketing metrics</li>
+                    <li>Your Product Roadmap: Prioritization of next opportunities for Rividium</li>
+                    <li>Your Partnership Development: Strategic conversations initiated for your benefit</li>
+                    <li>Your Growth Planning: Detailed milestone roadmap for Rividium's expansion</li>
+                </ul>
+            </div>
+            <div class="slide-number">10</div>
+        </div>
+
+        
+<!-- Slide 10: First Quarter Success Metrics -->
+        <div class="slide">
+            <h2>FIRST QUARTER SUCCESS METRICS</h2>
+            <div class="content-scroll">
+                <h3>Initial Phase Objectives</h3>
+
+                <div class="two-column">
+                    <div class="box">
+                        <h4>Operational Efficiency</h4>
+                        <ul style="font-size: 0.95em;">
+                            <li>CMMC Tracker operational</li>
+                            <li>Marketing automation reducing workload 30%+</li>
+                            <li>1 redundant position eliminated</li>
+                            <li>3+ bottlenecks identified and in development</li>
+                            <li>Process optimization delivering measurable time savings</li>
+                        </ul>
+
+                        <h4>Marketing & Brand</h4>
+                        <ul style="font-size: 0.95em;">
+                            <li>LinkedIn: 50%+ increase in engagement</li>
+                            <li>20+ content pieces published</li>
+                            <li>1+ speaking opportunity secured</li>
+                            <li>Visual brand assets refresh completed</li>
+                        </ul>
+                    </div>
+
+                    <div class="box">
+                        <h4>BD & Engagement</h4>
+                        <ul style="font-size: 0.95em;">
+                            <li>2+ conference events attended</li>
+                            <li>2-3 partnership conversations in motion</li>
+                            <li>$500K-1M in identified opportunities</li>
+                            <li>Strategic relationships initiated for Rividium</li>
+                        </ul>
+
+                        <h4>Internal Modernization</h4>
+                        <ul style="font-size: 0.95em;">
+                            <li>Operational assessment across 30+ contracts complete</li>
+                            <li>Top 5-10 commercialization targets identified</li>
+                            <li>1+ modernization solution deployed internally</li>
+                            <li>Case study documenting success prepared</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Financial Results for Rividium</h3>
+                <ul>
+                    <li><span class="highlight">$25K+ in documented cost savings delivered to you</span></li>
+                    <li><span class="highlight">$500K+ in partnership opportunities identified for you</span></li>
+                    <li>First external sale of tools we built for you generating revenue for Rividium</li>
+                </ul>
+
+                <h3>Your Modernization & Commercialization Progress</h3>
+                <ul>
+                    <li>Complete operational assessment across your 30+ contracts</li>
+                    <li>Identify your top 5-10 contracts with commercialization opportunities</li>
+                    <li>Deploy 1+ modernization solution internally at Rividium (your proof point)</li>
+                    <li>Document case study of Rividium's modernization success</li>
+                    <li><span class="highlight">$50K-150K commercialization pipeline from your existing contracts</span></li>
+                </ul>
+
+                <p class="emphasis" style="margin-top: 30px; text-align: center;">
+                    Your Protection: If we don't achieve these milestones for you, engagement terms can be renegotiated or terminated with 30 days notice.
+                </p>
+            </div>
+            <div class="slide-number">11</div>
+        </div>
+
+        
+<!-- Slide 12: Risk Mitigation -->
+        <div class="slide">
+            <h2>RISK MITIGATION</h2>
+            <div class="content-scroll">
+                <div class="two-column">
+                    <div class="box">
+                        <h3>For Rividium</h3>
+
+                        <h4>Risk: DataSync doesn't deliver value</h4>
+                        <p><strong>Mitigation:</strong> Regular checkpoints with clear milestones; 30-day termination clause</p>
+
+                        <h4>Risk: Conflicts with other DataSync clients</h4>
+                        <p><strong>Mitigation:</strong> 50 hours/week dedicated focus; no overlapping government contract pursuits</p>
+
+                        <h4>Risk: IP ownership disputes</h4>
+                        <p><strong>Mitigation:</strong> Clear IP documentation from Day 1; joint ownership on co-developed tools</p>
+
+                        <h4>Risk: Revenue share accounting complexity</h4>
+                        <p><strong>Mitigation:</strong> Quarterly payments with transparent reporting; option to convert to flat fee</p>
+                    </div>
+
+                    <div class="box">
+                        <h3>For DataSync</h3>
+
+                        <h4>Risk: Rividium doesn't provide access/authority</h4>
+                        <p><strong>Mitigation:</strong> Clear scope documented in services agreement; weekly sync with leadership team</p>
+
+                        <h4>Risk: Rividium terminates before ROI realized</h4>
+                        <p><strong>Mitigation:</strong> 30-day termination notice provides runway; payment terms ensure compensation</p>
+
+                        <h4>Risk: Commercial pipeline doesn't materialize</h4>
+                        <p><strong>Mitigation:</strong> Diversified value delivery (operational + commercial + marketing); base retainer provides stability</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">12</div>
+        </div>
+
+        
+<!-- Slide 13: Independence & Boundaries -->
+        <div class="slide">
+            <h2>INDEPENDENCE & BOUNDARIES</h2>
+            <div class="content-scroll">
+                <h3>DataSync Remains Independent</h3>
+                <p class="emphasis">This is a partnership, not employment:</p>
+                <ul>
+                    <li>DataSync retains other clients and pursues independent opportunities</li>
+                    <li>DataSync owns IP developed outside of Rividium engagement</li>
+                    <li>50 hours/week commitment allows independent growth</li>
+                    <li>No non-compete restrictions on DataSync's consulting or product businesses</li>
+                </ul>
+
+                <h3>Clear Boundaries</h3>
+
+                <div class="two-column">
+                    <div class="box">
+                        <h4>Jointly Owned</h4>
+                        <ul style="font-size: 0.95em;">
+                            <li>Tools built for Rividium's operational needs</li>
+                            <li>Client relationships developed jointly through partnerships</li>
+                            <li>Federal contract opportunities pursued together</li>
+                        </ul>
+                    </div>
+
+                    <div class="box">
+                        <h4>Rividium-Exclusive</h4>
+                        <ul style="font-size: 0.95em;">
+                            <li>Government contracting opportunities competing with Rividium</li>
+                            <li>Relationships with Rividium's existing clients</li>
+                            <li>CMMC compliance consulting for Rividium's direct competitors</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="box" style="margin-top: 30px; background: rgba(0, 212, 255, 0.1);">
+                    <h4>Separate from Rividium Engagement</h4>
+                    <ul>
+                        <li>DataSync's consulting work for non-competing clients</li>
+                        <li>Product development for broader market (non-government contracting tools)</li>
+                        <li>Independent conference speaking and thought leadership</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="slide-number">13</div>
+        </div>
+
+        
+<!-- Slide 14: The Partnership Vision -->
+        <div class="slide">
+            <h2>THE PARTNERSHIP VISION</h2>
+            <div class="content-scroll">
+                <h3>Year 1: Building Rividium's Foundation</h3>
+                <div class="box">
+                    <ul>
+                        <li><strong>Rividium achieves:</strong> Operational efficiency, substantial cost savings, commercial revenue foundation</li>
+                        <li><strong>DataSync supports:</strong> Leveraging your infrastructure, promoting your brand, aligning our success with yours</li>
+                        <li><strong class="highlight">Your measurable success:</strong> $1M+ in identified savings/revenue, productized tools generating ongoing income for you</li>
+                    </ul>
+                </div>
+
+                <h3>Year 2-3: Scaling Rividium's Market Position</h3>
+                <div class="box">
+                    <ul>
+                        <li>Your commercial wing fully operational, <span class="highlight">$10-15M in MSP contracts flowing to Rividium</span></li>
+                        <li>Tools we built for you generating <span class="highlight">$500K-1M annually in your recurring revenue</span></li>
+                        <li>Rividium pursuing larger prime contracts with our delivery support</li>
+                    </ul>
+                </div>
+
+                <h3>Year 3+: Rividium's Strategic Optionality</h3>
+                <div class="box">
+                    <ul>
+                        <li>Potential equity partnership or acquisition opportunities for Rividium</li>
+                        <li>Your expansion into adjacent markets (state/local government, international)</li>
+                        <li>Rividium established as <span class="highlight">innovation leader in government contracting space</span></li>
+                    </ul>
+                </div>
+
+                <p class="emphasis" style="font-size: 1.5em; text-align: center; margin-top: 40px;">
+                    This isn't a transactional consulting engagement where we take your money and leave.<br>
+                    This is a strategic investment in Rividium's transformation and market dominance.
+                </p>
+            </div>
+            <div class="slide-number">14</div>
+        </div>
+
+
+
+<!-- Slide XX: Why Now - The Window of Opportunity -->
+        <div class="slide">
+            <h2>WHY NOW? THE WINDOW OF OPPORTUNITY</h2>
+            <div class="content-scroll">
+                <p style="text-align: center; font-size: 1.4em; margin-bottom: 30px; color: #00ff88;">
+                    <strong>Market forces are converging to create a unique moment for federal contractors who can move fast.</strong>
+                </p>
+
+                <div class="two-column" style="margin-bottom: 40px;">
+                    <div class="box">
+                        <h3 style="color: #00d4ff;">Federal Compliance Deadlines</h3>
+                        <ul style="font-size: 1.05em; line-height: 1.9;">
+                            <li><strong>CMMC compliance</strong> becoming mandatory for DoD contracts</li>
+                            <li>Agencies accelerating <strong>zero trust architecture</strong> requirements</li>
+                            <li><strong>FedRAMP</strong> certifications increasingly expected</li>
+                            <li>Contractors without modernization plans losing bids</li>
+                        </ul>
+                        <p style="margin-top: 20px; color: #ffd000; font-size: 1.1em;">
+                            <strong>Impact:</strong> Firms that wait 12-18 months to modernize will miss this contract cycle.
+                        </p>
+                    </div>
+
+                    <div class="box">
+                        <h3 style="color: #00d4ff;">AI Modernization Wave</h3>
+                        <ul style="font-size: 1.05em; line-height: 1.9;">
+                            <li>Federal agencies <strong>mandated to adopt AI</strong> for efficiency</li>
+                            <li>Budget allocations shifting toward <strong>modernization initiatives</strong></li>
+                            <li>Early adopters capturing <strong>sole-source opportunities</strong></li>
+                            <li>Traditional contractors struggling to demonstrate AI capability</li>
+                        </ul>
+                        <p style="margin-top: 20px; color: #ffd000; font-size: 1.1em;">
+                            <strong>Impact:</strong> Rividium has first-mover advantage with production-ready AI infrastructure.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="box" style="background: rgba(255, 208, 0, 0.15); padding: 40px; margin-bottom: 30px;">
+                    <h3 style="color: #ffd000; font-size: 1.6em; margin-bottom: 25px; text-align: center;">The Competitive Landscape Is Shifting</h3>
+                    <div class="two-column">
+                        <div>
+                            <h4 style="color: #00ff88;">Winners in Next 3-5 Years:</h4>
+                            <ul style="font-size: 1.1em; line-height: 1.9;">
+                                <li>Demonstrate AI and automation capability</li>
+                                <li>Deploy solutions faster than competitors</li>
+                                <li>Operate leaner with higher margins</li>
+                                <li>Show tangible modernization credentials</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: #ff6b6b;">Losers in Next 3-5 Years:</h4>
+                            <ul style="font-size: 1.1em; line-height: 1.9;">
+                                <li>Rely solely on legacy relationships</li>
+                                <li>Can't demonstrate technical capability</li>
+                                <li>Slow to respond to RFPs (6-12 months)</li>
+                                <li>High operational costs with low margins</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box" style="background: rgba(0, 212, 255, 0.1); padding: 40px;">
+                    <h3 style="color: #00ff88; font-size: 1.6em; margin-bottom: 20px; text-align: center;">Rividium's Timing Advantage</h3>
+                    <ul style="font-size: 1.2em; line-height: 2;">
+                        <li><strong>30+ existing federal contracts</strong> = immediate deployment opportunities</li>
+                        <li><strong>GovDoc.ai acquisition</strong> = Day 1 modernization credibility</li>
+                        <li><strong>Production AWS infrastructure</strong> = faster than competitors by 12-18 months</li>
+                        <li><strong>CMMC/FedRAMP alignment</strong> = positioned for upcoming compliance wave</li>
+                    </ul>
+                    <p style="margin-top: 30px; text-align: center; font-size: 1.4em; color: #ffd000;">
+                        <strong>While competitors are building platforms, Rividium is already deploying solutions.</strong>
+                    </p>
+                </div>
+
+                <p class="emphasis" style="font-size: 1.6em; text-align: center; margin-top: 40px; color: #00ff88;">
+                    The window for first-mover advantage is 6-12 months. After that, the market will be saturated.
+                </p>
+            </div>
+            <div class="slide-number">15</div>
+        </div>
+
+
+<!-- Slide 16: Closing Statement -->
+        <div class="slide">
+            <h2>A PARTNERSHIP BUILT ON SHARED SUCCESS</h2>
+            <div class="content-scroll">
+                <div class="box" style="background: rgba(0, 212, 255, 0.15); padding: 40px; margin-bottom: 40px;">
+                    <h3 style="text-align: center; font-size: 1.8em; color: #00ff88; margin-bottom: 25px;">What This Partnership Delivers</h3>
+                    <p style="font-size: 1.3em; line-height: 2; text-align: center;">
+                        <strong>GovDoc.ai + Rividium</strong> creates a federal modernization powerhouse positioned to lead the next wave of government contracting innovation.
+                    </p>
+                </div>
+
+                <div class="two-column" style="margin-bottom: 40px;">
+                    <div class="box">
+                        <h3 style="color: #00d4ff;">Rividium Gains:</h3>
+                        <ul style="font-size: 1.1em; line-height: 1.9;">
+                            <li>Production-ready AI platform (GovDoc.ai acquisition)</li>
+                            <li>Federal infrastructure worth $500K-1M+ (Day 1 access)</li>
+                            <li>Proven operational team (Dante, Andre, Irena)</li>
+                            <li>Immediate cost savings offsetting investment</li>
+                            <li>Commercialization across 30+ existing contracts</li>
+                            <li>Market positioning as innovation leader</li>
+                        </ul>
+                    </div>
+
+                    <div class="box">
+                        <h3 style="color: #00d4ff;">DataSync Gains:</h3>
+                        <ul style="font-size: 1.1em; line-height: 1.9;">
+                            <li>Strategic federal partner with 30+ contracts</li>
+                            <li>Platform for GovDoc.ai deployment at scale</li>
+                            <li>Revenue sharing aligned with Rividium success</li>
+                            <li>Long-term partnership opportunity</li>
+                            <li>Proof of concept for federal transformation model</li>
+                            <li>Market credibility through Rividium relationship</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="box" style="background: rgba(255, 208, 0, 0.15); padding: 40px; margin-bottom: 40px;">
+                    <h3 style="text-align: center; font-size: 1.6em; color: #ffd000; margin-bottom: 25px;">The Alignment Is Perfect</h3>
+                    <ul style="font-size: 1.2em; line-height: 2;">
+                        <li><strong>Timing:</strong> CMMC deadlines + AI modernization wave = immediate opportunity</li>
+                        <li><strong>Capability:</strong> GovDoc.ai technical platform + Rividium 30+ contracts = ready to deploy</li>
+                        <li><strong>Expertise:</strong> Dante & Andre operational leadership + Rividium federal relationships = winning combination</li>
+                        <li><strong>Economics:</strong> $20K/month investment + cost savings + revenue sharing = aligned incentives</li>
+                    </ul>
+                </div>
+
+                <div class="box" style="background: linear-gradient(135deg, rgba(0, 212, 255, 0.2) 0%, rgba(0, 255, 136, 0.2) 100%); padding: 50px; text-align: center;">
+                    <h3 style="font-size: 2em; color: #00ff88; margin-bottom: 30px;">This Is About Long-Term Partnership</h3>
+                    <p style="font-size: 1.3em; line-height: 2; margin-bottom: 30px;">
+                        We're not selling consulting hours. We're proposing a strategic alliance where:
+                    </p>
+                    <p style="font-size: 1.4em; line-height: 2; color: #ffffff;">
+                        <strong>Rividium acquires proven federal AI technology</strong><br/>
+                        <strong>DataSync brings operational execution and expertise</strong><br/>
+                        <strong>Together we transform government contracting</strong>
+                    </p>
+                </div>
+
+                <p class="emphasis" style="font-size: 1.8em; text-align: center; margin-top: 50px; line-height: 1.6; color: #00ff88;">
+                    Dante and Andre will lead the transformation.<br/>
+                    GovDoc.ai becomes Rividium's platform.<br/>
+                    Your 30+ contracts become the deployment base.<br/>
+                    The market opportunity is now.
+                </p>
+
+                <div class="box" style="background: rgba(255, 208, 0, 0.1); padding: 40px; margin-top: 50px;">
+                    <p style="font-size: 1.3em; line-height: 1.9; text-align: center;">
+                        At <span class="highlight">$20K/month</span>, with <strong class="emphasis">Rividium retaining 49-90% of all revenue we generate</strong>, this is a strategic transformation partnership where we only succeed when Rividium succeeds.
+                    </p>
+                    <p style="font-size: 1.2em; line-height: 1.9; margin-top: 20px; text-align: center;">
+                        Our compensation is tied directly to results through measurable milestones and revenue sharing.
+                    </p>
+                </div>
+
+                <p class="emphasis" style="font-size: 1.6em; text-align: center; margin-top: 40px;">
+                    Dante and Andre will lead Rividium's internal transformation, commercialize it across your 30+ existing contracts, and then scale it to the broader market - with Rividium positioned as the innovation leader.
+                </p>
+
+                <p class="highlight" style="font-size: 2em; text-align: center; margin-top: 40px;">
+                    Let's formalize this partnership and start building Rividium's commercial future.
+                </p>
+            </div>
+            <div class="slide-number">16</div>
+        </div>
+
+    </div>
+
+    <div class="navigation">
+        <button class="nav-button" onclick="changeSlide(-1)">← Previous</button>
+        <button class="nav-button" onclick="changeSlide(1)">Next →</button>
+    </div>
+
+    <!-- Modal Pop-ups for Each Pillar -->
+    <!-- Pillar 1 Modal -->
+    <div id="pillar1" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">PILLAR 1: Operational Efficiency & Cost Reduction</div>
+                <button class="close-modal" onclick="closeModal('pillar1')">×</button>
+            </div>
+
+            <div class="modal-section">
+                <h3>CMMC Compliance AI Tracker</h3>
+                <p><strong>Deployment:</strong> Early phase priority</p>
+                <p><strong>Problem:</strong> Manual compliance analysis costs $10-20K per cycle in consultant fees, static reporting, slow remediation tracking</p>
+                <p><strong>Solution:</strong> Real-time compliance dashboard with auto-generated audit reports, remediation tracking, and policy gap analysis</p>
+                <h4>Impact for Rividium:</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>Cost Savings:</strong> $20-40K annually in reduced consultant spend</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>Speed:</strong> Real-time compliance posture vs quarterly reviews</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>Productization:</strong> Sellable to every contractor pursuing CMMC certification</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>Revenue Potential:</strong> $50-100K Year 1 from external sales (you keep 30%)</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3>Marketing Automation & Team Optimization</h3>
+                <p><strong>Implementation:</strong> Initial phase focus</p>
+                <p><strong>Problem:</strong> Rividium's LinkedIn presence is minimal, marketing team has redundancy, current marketing approach doesn't fully elevate Rividium brand</p>
+                <p><strong>Solution:</strong> AI-powered content engine, LinkedIn optimization, brand voice development, automated social workflows</p>
+                <h4>Impact for Rividium:</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>Cost Savings:</strong> $80-120K annually (eliminate 1-2 redundant marketing positions)</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>Brand Elevation:</strong> Professional digital presence for government contracting space</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>Lead Generation:</strong> Thought leadership positioning attracts inbound opportunities for you</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>Productization:</strong> Marketing automation suite for other contractors with weak digital presence</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3>Process Modernization</h3>
+                <p><strong>Implementation:</strong> Ongoing, prioritized by ROI for Rividium</p>
+                <p><strong>Problem:</strong> Manual, outdated processes, inefficient workflows, consultant dependency</p>
+                <p><strong>Solution:</strong> Systematic identification and automation of operational bottlenecks</p>
+                <h4>Impact for Rividium:</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>Efficiency Gains:</strong> 20-30% reduction in time-to-delivery on POCs and proposals</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>Cost Reduction:</strong> Eliminate redundant consultant contracts</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>Scalability:</strong> Build processes that scale without headcount for you</li>
+                </ul>
+            </div>
+
+            <div class="modal-highlight-box">
+                <h3>Pillar 1 Total Annual Impact for Rividium</h3>
+                <p style="font-size: 1.5em; margin-top: 15px;">$100-160K in cost savings</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pillar 2 Modal -->
+    <div id="pillar2" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">PILLAR 2: Marketing & Brand Elevation</div>
+                <button class="close-modal" onclick="closeModal('pillar2')">×</button>
+            </div>
+
+            <div class="modal-section">
+                <h3>Digital Presence Transformation - Proven Model Applied to Rividium</h3>
+                <p><strong style="color: #ffd000;">The Same Team That Transformed GovDoc.ai, Now Working for You</strong></p>
+                <p>Andre Chinnery and graphic designer Irena have already executed this exact playbook successfully. This isn't theoretical - it's a proven model now dedicated to elevating Rividium's brand.</p>
+
+                <h4>Ownership & Execution for Rividium:</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>Andre Chinnery:</strong> Direct ownership and management of all your social media accounts</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>Irena (Graphic Designer):</strong> Visual branding for Rividium, social graphics, content design</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>AI-Powered Automation:</strong> Content generation for you, scheduling, analytics, engagement optimization</li>
+                </ul>
+
+                <h4>Specific Deliverables for Rividium:</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>Your LinkedIn Transformation:</strong> Executive profiles (Xavier, leadership), company page overhaul, strategic content calendar</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>Your AI-Powered Content Engine:</strong> Automated blog posts, case studies, white papers on CMMC, cybersecurity, gov tech modernization</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>Your Visual Brand Development:</strong> Professional graphics, infographics, presentation templates, social media assets</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>Thought Leadership Positioning:</strong> Position Rividium executives as subject matter experts</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>Lead Magnet Development:</strong> CMMC guides, compliance checklists, webinars for Rividium</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3>What This Delivers to Rividium:</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>Proven expertise</strong> from successful GovDoc.ai transformation, now applied to your brand</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>$80-120K annual savings</strong> by eliminating redundant marketing positions</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> Inbound leads generated for Rividium through thought leadership</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> Enhanced market credibility that wins you more contracts</li>
+                </ul>
+            </div>
+
+            <div class="modal-highlight-box">
+                <h3>Pillar 2 Delivers to Rividium</h3>
+                <p style="font-size: 1.5em; margin-top: 15px;">$80-120K annual cost savings + proven lead generation</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pillar 3 Modal -->
+    <div id="pillar3" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">PILLAR 3: Business Development & Engagement</div>
+                <button class="close-modal" onclick="closeModal('pillar3')">×</button>
+            </div>
+
+            <div class="modal-section">
+                <h3>Conference & Networking Presence - Representing Rividium</h3>
+                <p><strong>What Most Consultants Do:</strong> Show up to meetings, deliver reports, go home</p>
+                <p><strong style="color: #00ff88;">What We Do for Rividium:</strong> Active BD on your behalf, building relationships that close your deals</p>
+
+                <h4>Specific Activities for Rividium:</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>Conference Attendance:</strong> Government contracting conferences, cybersecurity events, CMMC forums - representing you</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>After-Hours Engagement:</strong> Dinners, drinks, golf - relationship building that closes your deals</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>Strategic Introductions:</strong> Leverage our network + Rividium brand for warm introductions to your prospects</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>Partnership Development:</strong> Identify and activate technology partnerships, subcontractor relationships for you</li>
+                </ul>
+
+                <div style="background: rgba(0, 212, 255, 0.1); border: 2px solid #00d4ff; border-radius: 10px; padding: 25px; margin: 25px 0; text-align: center;">
+                    <p style="font-size: 1.3em; color: #ffd000; font-weight: bold;">
+                        Rividium has seen this firsthand. You know we're the team that gets it done.
+                    </p>
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h3>Strategic Partnership Activation - For Rividium's Benefit</h3>
+                <p><strong>We Handle:</strong></p>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> Identifying partnership opportunities that benefit Rividium (technology vendors, subcontractors)</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> Activating your dormant relationships through targeted outreach</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> Structuring joint pursuit agreements that favor Rividium</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> Managing your partnership pipeline and reporting progress</li>
+                </ul>
+
+                <h4>Impact for Rividium:</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>Relationship Capital:</strong> Government contracting is a relationship business - we build those relationships for you</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>Pipeline Development:</strong> Face-to-face engagement accelerates your deal velocity</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>Market Intelligence:</strong> Direct feedback from prospects, competitors, partners informs your strategy</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>Brand Amplification:</strong> Every conversation elevates Rividium's market position</li>
+                </ul>
+            </div>
+
+            <div class="modal-highlight-box">
+                <h3>Pillar 3 Delivers to Rividium</h3>
+                <p style="font-size: 1.5em; margin-top: 15px;">3-5 new partnerships, $500K-1M in your pipeline</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pillar 4 Modal -->
+    <div id="pillar4" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">PILLAR 4: Internal Modernization & Commercialization</div>
+                <button class="close-modal" onclick="closeModal('pillar4')">×</button>
+            </div>
+
+            <div class="modal-section">
+                <p><strong>Your Leadership Team:</strong> Dante & Andre working directly for Rividium's transformation</p>
+                <p style="margin-top: 20px;">This pillar represents a strategic shift from traditional government contracting to becoming an innovation-driven, commercially viable transformation partner.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Phase 1: Transforming Rividium Internally (Months 1-6)</h3>
+                <h4>Objective:</h4>
+                <p>Transform your internal operations using cutting-edge AI, automation, and process optimization</p>
+
+                <h4>Dante & Andre's Focus Areas for You:</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> We modernize your operations with AI and automation</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> We implement your CMMC compliance tracking and real-time audit readiness</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> We deploy rapid POC frameworks for your team (48-72 hour turnaround vs. months)</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> We streamline your proposal development and contract delivery workflows</li>
+                </ul>
+
+                <h4>Measurable Outcomes for Rividium:</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00ff88;">✓</span> <strong>You achieve 30-50% reduction in operational overhead</strong></li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00ff88;">✓</span> Real-time compliance posture vs. quarterly consultant reviews</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00ff88;">✓</span> Professional digital presence that attracts both clients and talent to Rividium</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00ff88;">✓</span> Documented cost savings of $120K-200K annually</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3>Phase 2: Commercializing to Your Existing Contracts (Months 6-12)</h3>
+                <h4>Objective:</h4>
+                <p>Leverage Rividium's 30+ existing contracts as built-in customer base for modernized solutions</p>
+
+                <p style="margin-top: 20px;"><strong style="color: #ffd000;">Your Strategic Advantage:</strong> Your 30+ existing government clients become immediate revenue opportunities without cold outreach</p>
+
+                <h4>Commercialization Strategy for Rividium:</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>We Identify Cross-Sell Opportunities:</strong> Audit your 30+ contracts for modernization needs</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>We Run Pilot Programs:</strong> Offer CMMC compliance tools to your current government clients</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>We Document Your Success:</strong> Rividium's own modernization journey becomes the proof point</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> <strong>Revenue Model:</strong> SaaS subscriptions, professional services, ongoing support retainers</li>
+                </ul>
+
+                <h4>Projected Impact for Rividium:</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00ff88;">▸</span> <strong>Conservative:</strong> 10-15% of your existing 30+ contracts adopt at least one modernization solution</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00ff88;">▸</span> <strong>You Generate:</strong> $500K-1.5M in Year 1 from your existing client base alone (you keep 60%)</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00ff88;">▸</span> <strong>Strategic Value:</strong> Deepens your existing relationships, increases contract stickiness, creates recurring revenue for you</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3>Phase 3: Expanding Your Market Reach (Months 12-24)</h3>
+                <h4>Objective:</h4>
+                <p>Scale proven solutions to broader government contracting market under Rividium's brand</p>
+
+                <h4>Expansion Strategy for Rividium:</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> We target government contractors pursuing CMMC compliance (massive market need)</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> We establish channel partnerships (CMMC consulting firms, trade associations)</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> We package products under Rividium's brand: Compliance Suite, POC Accelerator, Marketing Engine</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">▸</span> Market positioning: "Built by Rividium, for contractors"</li>
+                </ul>
+
+                <h4>Projected Impact for Rividium:</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00ff88;">▸</span> <strong>Year 2 Revenue for You:</strong> $2-5M from external market</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00ff88;">▸</span> <strong>Year 3 Revenue for You:</strong> $10-15M+ as dominant player</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00ff88;">▸</span> <strong>Strategic Exit Potential:</strong> Proven SaaS revenue creates acquisition opportunities for Rividium</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3>Why This Strategy Works for Rividium</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">1.</span> <strong>Your Built-In Customer Base:</strong> 30+ existing contracts = immediate commercialization without cold outreach</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">2.</span> <strong>Proven Before Selling:</strong> You implement internally first, validate ROI, then sell with confidence</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">3.</span> <strong>Your Leadership Credibility:</strong> Dante & Andre aren't just consultants - they're operators who modernized Rividium</li>
+                    <li style="padding-left: 30px; position: relative; margin-bottom: 10px;"><span style="position: absolute; left: 0; color: #00d4ff;">4.</span> <strong>Market Timing:</strong> CMMC compliance mandate creates urgent need for what Rividium is building</li>
+                </ul>
+            </div>
+
+            <div class="modal-highlight-box">
+                <h3>Pillar 4 Total Impact for Rividium</h3>
+                <p style="font-size: 1.3em; margin-top: 15px;">
+                    <strong>Year 1:</strong> $500K-1.5M from existing contracts + $100-200K in external product sales<br>
+                    <strong>Year 2:</strong> $2-5M from market expansion<br>
+                    <strong>Year 3:</strong> $10-15M+ as dominant player in government contractor modernization
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const progressBar = document.getElementById('progressBar');
+        const slideCounter = document.getElementById('slideCounter');
+
+        function updateProgress() {
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            progressBar.style.width = progress + '%';
+            slideCounter.textContent = (currentSlide + 1) + ' / ' + totalSlides;
+        }
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            updateProgress();
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (event.key === 'ArrowRight' || event.key === ' ') {
+                changeSlide(1);
+            } else if (event.key === 'Escape') {
+                // Close any open modals
+                document.querySelectorAll('.modal').forEach(modal => {
+                    modal.classList.remove('active');
+                });
+            }
+        });
+
+        // Modal functions
+        function openModal(pillarId) {
+            document.getElementById(pillarId).classList.add('active');
+        }
+
+        function closeModal(pillarId) {
+            document.getElementById(pillarId).classList.remove('active');
+        }
+
+        // Close modal when clicking outside the content
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        });
+
+        // Initialize
+        updateProgress(); // Set initial progress bar and counter
+        showSlide(0);
+    </script>
+</body>
+</html>
